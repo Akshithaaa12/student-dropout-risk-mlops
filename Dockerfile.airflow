@@ -1,0 +1,13 @@
+# Airflow image for the Part 2 demo: Airflow 2.10 + the ML libraries the DAG tasks import.
+# Pinned to Airflow's official constraints so numpy/pandas/sqlalchemy stay compatible.
+FROM apache/airflow:2.10.5-python3.11
+
+USER root
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1 \
+    && rm -rf /var/lib/apt/lists/*
+
+USER airflow
+COPY requirements-airflow.txt /tmp/requirements-airflow.txt
+RUN pip install --no-cache-dir --default-timeout=120 --retries 10 \
+    -r /tmp/requirements-airflow.txt \
+    -c https://raw.githubusercontent.com/apache/airflow/constraints-2.10.5/constraints-3.11.txt

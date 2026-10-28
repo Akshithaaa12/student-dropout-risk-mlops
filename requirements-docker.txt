@@ -1,0 +1,13 @@
+# Lean set for the container image (no Streamlit / graphviz / pytest).
+pandas>=2.0
+numpy>=1.24
+scikit-learn>=1.4
+scipy>=1.11
+joblib>=1.3
+matplotlib>=3.7
+mlflow>=3.0,<4
+xgboost-cpu>=2.1   # CPU-only build, same `import xgboost`; avoids a 350 MB GPU (nccl) download
+shap>=0.44
+fastapi>=0.110
+uvicorn[standard]>=0.27
+pydantic>=2.5

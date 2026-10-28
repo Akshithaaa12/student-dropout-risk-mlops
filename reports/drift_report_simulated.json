@@ -1,0 +1,298 @@
+{
+  "checked_at": "2026-10-09T03:37:06+00:00",
+  "source": "SIMULATED shifted batch (demo, not real traffic)",
+  "simulated": true,
+  "n_current": 200,
+  "n_reference": 827,
+  "model_version": 2,
+  "algorithm": "random_forest",
+  "feature_drift": [
+    {
+      "feature": "attendance_pct",
+      "psi": 4.2212,
+      "status": "drift",
+      "ref_mean": 88.812,
+      "cur_mean": 73.828,
+      "ks_stat": 0.63,
+      "ks_p": 0.0
+    },
+    {
+      "feature": "lms_engagement_score",
+      "psi": 3.1209,
+      "status": "drift",
+      "ref_mean": 55.244,
+      "cur_mean": 37.791,
+      "ks_stat": 0.6425,
+      "ks_p": 0.0
+    },
+    {
+      "feature": "absences",
+      "psi": 2.0404,
+      "status": "drift",
+      "ref_mean": 4.368,
+      "cur_mean": 10.435,
+      "ks_stat": 0.555,
+      "ks_p": 0.0
+    },
+    {
+      "feature": "avg_internal_marks",
+      "psi": 0.6845,
+      "status": "drift",
+      "ref_mean": 11.216,
+      "cur_mean": 9.071,
+      "ks_stat": 0.295,
+      "ks_p": 0.0
+    },
+    {
+      "feature": "previous_semester_score",
+      "psi": 0.5482,
+      "status": "drift",
+      "ref_mean": 11.258,
+      "cur_mean": 9.105,
+      "ks_stat": 0.275,
+      "ks_p": 0.0
+    },
+    {
+      "feature": "age",
+      "psi": 0.0556,
+      "status": "stable",
+      "ref_mean": 16.716,
+      "cur_mean": 16.605,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "traveltime",
+      "psi": 0.0242,
+      "status": "stable",
+      "ref_mean": 1.499,
+      "cur_mean": 1.525,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "Walc",
+      "psi": 0.0218,
+      "status": "stable",
+      "ref_mean": 2.289,
+      "cur_mean": 2.14,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "Medu",
+      "psi": 0.0196,
+      "status": "stable",
+      "ref_mean": 2.62,
+      "cur_mean": 2.51,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "goout",
+      "psi": 0.0186,
+      "status": "stable",
+      "ref_mean": 3.149,
+      "cur_mean": 3.07,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "freetime",
+      "psi": 0.0178,
+      "status": "stable",
+      "ref_mean": 3.195,
+      "cur_mean": 3.295,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "schoolsup",
+      "psi": 0.0169,
+      "status": "stable",
+      "ref_mean": 0.12,
+      "cur_mean": 0.165,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "failures",
+      "psi": 0.0145,
+      "status": "stable",
+      "ref_mean": 0.258,
+      "cur_mean": 0.325,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "assignment_completion_rate",
+      "psi": 0.013,
+      "status": "stable",
+      "ref_mean": 0.693,
+      "cur_mean": 0.682,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "studytime",
+      "psi": 0.013,
+      "status": "stable",
+      "ref_mean": 1.978,
+      "cur_mean": 2.065,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "Fedu",
+      "psi": 0.0117,
+      "status": "stable",
+      "ref_mean": 2.415,
+      "cur_mean": 2.36,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "is_male",
+      "psi": 0.0106,
+      "status": "stable",
+      "ref_mean": 0.43,
+      "cur_mean": 0.38,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "attendance_data_available",
+      "psi": 0.0102,
+      "status": "stable",
+      "ref_mean": 0.985,
+      "cur_mean": 0.995,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "famrel",
+      "psi": 0.0096,
+      "status": "stable",
+      "ref_mean": 3.946,
+      "cur_mean": 3.94,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "Dalc",
+      "psi": 0.0072,
+      "status": "stable",
+      "ref_mean": 1.508,
+      "cur_mean": 1.49,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "health",
+      "psi": 0.0067,
+      "status": "stable",
+      "ref_mean": 3.508,
+      "cur_mean": 3.42,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "famsup",
+      "psi": 0.0029,
+      "status": "stable",
+      "ref_mean": 0.624,
+      "cur_mean": 0.65,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "paid",
+      "psi": 0.0027,
+      "status": "stable",
+      "ref_mean": 0.221,
+      "cur_mean": 0.2,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "activities",
+      "psi": 0.0019,
+      "status": "stable",
+      "ref_mean": 0.502,
+      "cur_mean": 0.48,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "is_math",
+      "psi": 0.0005,
+      "status": "stable",
+      "ref_mean": 0.369,
+      "cur_mean": 0.38,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "romantic",
+      "psi": 0.0004,
+      "status": "stable",
+      "ref_mean": 0.356,
+      "cur_mean": 0.365,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "internet",
+      "psi": 0.0002,
+      "status": "stable",
+      "ref_mean": 0.799,
+      "cur_mean": 0.805,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "higher",
+      "psi": 0.0,
+      "status": "stable",
+      "ref_mean": 0.919,
+      "cur_mean": 0.92,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "lms_data_available",
+      "psi": 0.0,
+      "status": "stable",
+      "ref_mean": 1.0,
+      "cur_mean": 1.0,
+      "ks_stat": null,
+      "ks_p": null
+    },
+    {
+      "feature": "assignment_data_available",
+      "psi": 0.0,
+      "status": "stable",
+      "ref_mean": 1.0,
+      "cur_mean": 1.0,
+      "ks_stat": null,
+      "ks_p": null
+    }
+  ],
+  "prediction_drift": {
+    "flagged_share_current": 0.49,
+    "flagged_share_reference": 0.2367,
+    "shift_pp": 25.33
+  },
+  "missing_data": {
+    "attendance_data_available": 0.005,
+    "lms_data_available": 0.0,
+    "assignment_data_available": 0.0
+  },
+  "performance": "not evaluated (no labelled outcomes yet)",
+  "model_age_days": 0,
+  "triggers": [
+    "T1 data drift: 5 feature(s) PSI>0.2 (worst attendance_pct = 4.2212)",
+    "T2 prediction drift: flagged share moved +25.3 pp"
+  ],
+  "status": "RETRAIN_RECOMMENDED"
+}

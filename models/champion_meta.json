@@ -1,0 +1,263 @@
+{
+  "model_name": "student-dropout-risk",
+  "algorithm": "random_forest",
+  "registry_version": 26,
+  "alias": "champion",
+  "trained_at": "2026-10-28T00:06:34+00:00",
+  "mlflow_run_id": "3a889df9fcf2411ab4ba9e57cfcd0247",
+  "threshold": 0.64,
+  "features": [
+    "attendance_pct",
+    "avg_internal_marks",
+    "previous_semester_score",
+    "assignment_completion_rate",
+    "lms_engagement_score",
+    "studytime",
+    "failures",
+    "absences",
+    "goout",
+    "Dalc",
+    "Walc",
+    "freetime",
+    "health",
+    "famrel",
+    "Medu",
+    "Fedu",
+    "age",
+    "traveltime",
+    "internet",
+    "higher",
+    "schoolsup",
+    "famsup",
+    "paid",
+    "activities",
+    "romantic",
+    "is_male",
+    "is_math",
+    "attendance_data_available",
+    "lms_data_available",
+    "assignment_data_available"
+  ],
+  "target": "at_risk",
+  "target_definition": "final score G3 < 10",
+  "metrics_test_default_threshold": {
+    "roc_auc": 0.9678638941398865,
+    "pr_auc": 0.9028126409711494,
+    "accuracy": 0.893719806763285,
+    "precision": 0.7068965517241379,
+    "recall": 0.8913043478260869,
+    "f1": 0.7884615384615384,
+    "brier": 0.07118072422272653,
+    "tn": 144,
+    "fp": 17,
+    "fn": 5,
+    "tp": 41,
+    "threshold": 0.5
+  },
+  "metrics_test_operating_threshold": {
+    "roc_auc": 0.9678638941398865,
+    "pr_auc": 0.9028126409711494,
+    "accuracy": 0.9082125603864735,
+    "precision": 0.7755102040816326,
+    "recall": 0.8260869565217391,
+    "f1": 0.8,
+    "brier": 0.07118072422272653,
+    "tn": 150,
+    "fp": 11,
+    "fn": 8,
+    "tp": 38,
+    "threshold": 0.64
+  },
+  "cv": {
+    "cv_roc_auc_mean": 0.9705996694368787,
+    "cv_pr_auc_mean": 0.9009763100668545,
+    "cv_recall_mean": 0.8848348348348349,
+    "cv_f1_mean": 0.8343915343915344,
+    "cv_roc_auc_std": 0.009733326346536246
+  },
+  "all_models": {
+    "logistic_regression": {
+      "cv": {
+        "cv_roc_auc_mean": 0.9685871918430058,
+        "cv_pr_auc_mean": 0.9063938089740985,
+        "cv_recall_mean": 0.9007507507507508,
+        "cv_f1_mean": 0.79961348955673,
+        "cv_roc_auc_std": 0.008895158644793944
+      },
+      "test": {
+        "roc_auc": 0.9640831758034026,
+        "pr_auc": 0.9066344671391224,
+        "accuracy": 0.8743961352657005,
+        "precision": 0.65625,
+        "recall": 0.9130434782608695,
+        "f1": 0.7636363636363637,
+        "brier": 0.08846016469363925,
+        "tn": 139,
+        "fp": 22,
+        "fn": 4,
+        "tp": 42,
+        "threshold": 0.5
+      }
+    },
+    "random_forest": {
+      "cv": {
+        "cv_roc_auc_mean": 0.9705996694368787,
+        "cv_pr_auc_mean": 0.9009763100668545,
+        "cv_recall_mean": 0.8848348348348349,
+        "cv_f1_mean": 0.8343915343915344,
+        "cv_roc_auc_std": 0.009733326346536246
+      },
+      "test": {
+        "roc_auc": 0.9678638941398865,
+        "pr_auc": 0.9028126409711494,
+        "accuracy": 0.893719806763285,
+        "precision": 0.7068965517241379,
+        "recall": 0.8913043478260869,
+        "f1": 0.7884615384615384,
+        "brier": 0.07118072422272653,
+        "tn": 144,
+        "fp": 17,
+        "fn": 5,
+        "tp": 41,
+        "threshold": 0.5
+      }
+    },
+    "hist_gradient_boosting": {
+      "cv": {
+        "cv_roc_auc_mean": 0.958606280699304,
+        "cv_pr_auc_mean": 0.8955282654591983,
+        "cv_recall_mean": 0.8130630630630631,
+        "cv_f1_mean": 0.7737108970442304,
+        "cv_roc_auc_std": 0.010929259989396306
+      },
+      "test": {
+        "roc_auc": 0.9723197407507427,
+        "pr_auc": 0.9228969092221434,
+        "accuracy": 0.8792270531400966,
+        "precision": 0.6779661016949152,
+        "recall": 0.8695652173913043,
+        "f1": 0.7619047619047619,
+        "brier": 0.07749105320446187,
+        "tn": 142,
+        "fp": 19,
+        "fn": 6,
+        "tp": 40,
+        "threshold": 0.5
+      }
+    },
+    "svm_rbf": {
+      "cv": {
+        "cv_roc_auc_mean": 0.9541588099727635,
+        "cv_pr_auc_mean": 0.8653844732438808,
+        "cv_recall_mean": 0.6863363363363364,
+        "cv_f1_mean": 0.7247508119063315,
+        "cv_roc_auc_std": 0.018064020242215786
+      },
+      "test": {
+        "roc_auc": 0.9574669187145557,
+        "pr_auc": 0.8814983442105319,
+        "accuracy": 0.9082125603864735,
+        "precision": 0.8,
+        "recall": 0.782608695652174,
+        "f1": 0.7912087912087912,
+        "brier": 0.06914633692820221,
+        "tn": 152,
+        "fp": 9,
+        "fn": 10,
+        "tp": 36,
+        "threshold": 0.5
+      }
+    },
+    "xgboost": {
+      "cv": {
+        "cv_roc_auc_mean": 0.9640081942407525,
+        "cv_pr_auc_mean": 0.8998322050379268,
+        "cv_recall_mean": 0.8238738738738739,
+        "cv_f1_mean": 0.7955662778301568,
+        "cv_roc_auc_std": 0.011808080213213657
+      },
+      "test": {
+        "roc_auc": 0.97529030515798,
+        "pr_auc": 0.9284918328550088,
+        "accuracy": 0.8985507246376812,
+        "precision": 0.7192982456140351,
+        "recall": 0.8913043478260869,
+        "f1": 0.7961165048543689,
+        "brier": 0.07507399469614029,
+        "tn": 145,
+        "fp": 16,
+        "fn": 5,
+        "tp": 41,
+        "threshold": 0.5
+      }
+    }
+  },
+  "baselines": {
+    "baseline_majority": {
+      "roc_auc": 0.5,
+      "pr_auc": 0.2222222222222222,
+      "accuracy": 0.7777777777777778,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "brier": 0.17284412725752402,
+      "tn": 161,
+      "fp": 0,
+      "fn": 46,
+      "tp": 0,
+      "threshold": 0.5
+    },
+    "baseline_rule_G2_below_10": {
+      "roc_auc": 0.9710369970294356,
+      "pr_auc": 0.8943194390077316,
+      "accuracy": 0.8067632850241546,
+      "precision": 0.5348837209302325,
+      "recall": 1.0,
+      "f1": 0.696969696969697,
+      "brier": 0.12940821256038645,
+      "tn": 121,
+      "fp": 40,
+      "fn": 0,
+      "tp": 46,
+      "threshold": 0.5
+    }
+  },
+  "shap_mean_abs": {
+    "avg_internal_marks": 0.1923480185298077,
+    "previous_semester_score": 0.16479179082834644,
+    "failures": 0.03140122442757374,
+    "lms_engagement_score": 0.023435633278642634,
+    "is_math": 0.020411396491333913,
+    "attendance_pct": 0.008620028688844952,
+    "absences": 0.00693828036132126,
+    "goout": 0.0067476681078322285,
+    "age": 0.004893994572990114,
+    "famrel": 0.004782923192868834,
+    "Fedu": 0.004671375390561475,
+    "traveltime": 0.004462803856237139,
+    "assignment_completion_rate": 0.004374758786401469,
+    "higher": 0.0041998536690671315,
+    "Dalc": 0.004135033134522025,
+    "freetime": 0.0032056063762635457,
+    "Walc": 0.0029768444573004737,
+    "romantic": 0.002835821785268997,
+    "Medu": 0.002663036696387747,
+    "paid": 0.0026593373776773285,
+    "health": 0.0023449743355545343,
+    "famsup": 0.00207221330552389,
+    "activities": 0.0019778318248513003,
+    "internet": 0.0019475778310647667,
+    "is_male": 0.0016969418491701589,
+    "studytime": 0.0014697807175596636,
+    "schoolsup": 0.0010877757458493565,
+    "attendance_data_available": 0.00026163374589289074,
+    "lms_data_available": 0.0,
+    "assignment_data_available": 0.0
+  },
+  "env": {
+    "sklearn": "1.9.1",
+    "python": "3.11.11",
+    "pandas": "2.1.4",
+    "numpy": "1.26.4"
+  }
+}

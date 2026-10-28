@@ -1,0 +1,95 @@
+# Usage (from the project root):
+#   docker compose --profile train run --rm trainer     # build dataset + train + register (writes ./models, ./mlstore)
+#   docker compose up --build api                       # serve the champion model on :8000
+#   docker compose up mlflow                            # MLflow UI on http://localhost:5001
+#   docker compose --profile monitor run --rm monitor   # drift report on logs/prediction_log.csv
+#   docker compose --profile airflow up --build airflow # Airflow UI on http://localhost:8080 (admin / admin)
+#
+# Prerequisite: the Part 1 pipeline has been run (data/analytical + data/cleaned exist):
+#   python scripts/run_pipeline.py
+services:
+  api:
+    build: .
+    image: student-dropout-api:latest
+    ports: ["8000:8000"]
+    environment:
+      CHAMPION_PATH: /app/models/champion.joblib
+    volumes:
+      - ./models:/app/models:ro
+      - ./logs:/app/logs
+    restart: unless-stopped
+
+  mlflow:
+    build: .
+    image: student-dropout-api:latest
+    command: ["mlflow", "server", "--host", "0.0.0.0", "--port", "5000",
+              "--backend-store-uri", "sqlite:////app/mlstore/mlflow.db"]
+    ports: ["5001:5000"]
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    volumes:
+      - ./mlstore:/app/mlstore
+    depends_on: [api]
+
+  trainer:
+    build: .
+    image: student-dropout-api:latest
+    profiles: ["train"]
+    command: ["sh", "-c", "python -m mlops.dataset && python -m mlops.train"]
+    environment:
+      DB_PATH: /app/db/student_performance.db
+    volumes:
+      - ./data:/app/data
+      - ./db:/app/db
+      - ./models:/app/models
+      - ./reports:/app/reports
+      - ./mlstore:/app/mlstore
+
+  monitor:
+    build: .
+    image: student-dropout-api:latest
+    profiles: ["monitor"]
+    command: ["python", "-m", "mlops.monitoring"]
+    volumes:
+      - ./data:/app/data
+      - ./models:/app/models
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+      - ./mlstore:/app/mlstore
+
+  airflow:
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
+    image: student-dropout-airflow:latest
+    profiles: ["airflow"]
+    ports: ["8080:8080"]
+    working_dir: /app
+    environment:
+      AIRFLOW__CORE__DAGS_FOLDER: /app/dags
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+      AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION: "False"
+      AIRFLOW__WEBSERVER__EXPOSE_CONFIG: "True"
+      PYTHONPATH: /app
+      DB_PATH: /app/db/student_performance.db
+      # separate MLflow DB: Airflow pins an older MLflow than the trainer image
+      MLFLOW_TRACKING_URI: sqlite:////app/mlstore/airflow_mlflow.db
+      GIT_PYTHON_REFRESH: quiet
+    volumes:
+      - .:/app
+      - airflow_home:/opt/airflow
+    command:
+      - bash
+      - -c
+      - |
+        airflow db migrate
+        airflow users create --username admin --password admin --role Admin \
+          --firstname Akshitha --lastname M --email admin@example.com || true
+        airflow scheduler &
+        exec airflow webserver --port 8080
+
+volumes:
+  airflow_home:

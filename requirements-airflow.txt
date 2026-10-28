@@ -1,0 +1,9 @@
+# ML libraries for the Airflow image (on top of Airflow itself).
+# No fastapi/uvicorn/pydantic here: the API runs in its own container.
+scikit-learn
+scipy
+joblib
+matplotlib
+mlflow>=3.0,<4
+xgboost-cpu>=2.1
+shap
